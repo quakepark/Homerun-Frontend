@@ -9,7 +9,6 @@
               required
               type="text"
               placeholder="First Name*"
-              
             >
             <!-- <div
               v-if="submitted && !$v.user.firstName.required"
@@ -34,7 +33,6 @@
               required
               type="text"
               placeholder="Username*"
-              
             >
             <!-- <div
               v-if="submitted && !$v.user.username.required"
@@ -45,8 +43,7 @@
               class="invalid-feedback pl-4"
             >
               Username is invalid:
-              <br>1. A username can only have numbers at the end, and can have only _ as the allowed special character only after the first two letters
-              <br>2. A username should at least be 2 characters long
+              <br> A username should at least be 2 characters long
             </div> -->
           </div>
 
@@ -55,7 +52,6 @@
               required
               type="text"
               placeholder="Address*"
-              
             >
             <!-- <div v-if="submitted && $v.user.companyName.$error" class="invalid-feedback pl-4">
               <span v-if="!$v.user.companyName.required">company Name is required</span>
@@ -67,7 +63,6 @@
               required
               type="email"
               placeholder="Email Address*"
-              
             >
             <!-- <div v-if="submitted && $v.user.email.$error" class="invalid-feedback pl-4">
               <span v-if="!$v.user.email.required">Email is required</span>
@@ -80,8 +75,6 @@
               required
               type="phone"
               placeholder="Phone Number*"
-
-              
             >
             <!-- <div v-if="submitted && $v.user.password.$error" class="invalid-feedback pl-4">
               <span v-if="!$v.user.password.required">Password is required</span>
@@ -100,7 +93,6 @@
               required
               type="password"
               placeholder="Password*"
-              
             >
             <!-- <div v-if="submitted && $v.user.password.$error" class="invalid-feedback pl-4">
               <span v-if="!$v.user.password.required">Password is required</span>
@@ -120,9 +112,14 @@
               type="password"
               placeholder="Confirm Password*"
             >
-            <!-- <div v-if="submitted && $v.user.confirmPassword.$error" class="invalid-feedback pl-4">
+            <!-- <div
+              v-if="submitted && $v.user.confirmPassword.$error"
+              class="invalid-feedback pl-4"
+            >
               <span v-if="!$v.user.confirmPassword.required">Confirm Password is required</span>
-              <span v-else-if="!$v.user.confirmPassword.sameAsPassword">Passwords does not match</span>
+              <span v-else-if="!$v.user.confirmPassword.sameAsPassword">
+                Passwords does not match
+              </span>
             </div> -->
           </div>
 
@@ -142,9 +139,7 @@
 </template>
 
 <script>
-export default {
-  
-}
+export default {};
 </script>
 
 <style scoped>

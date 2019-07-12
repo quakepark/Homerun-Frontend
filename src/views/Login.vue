@@ -10,7 +10,6 @@
               required
               type="email"
               placeholder="Email Address*"
-              
             >
             <!-- <div v-if="submitted && $v.user.email.$error" class="invalid-feedback pl-4">
               <span v-if="!$v.user.email.required">Email is required</span>
@@ -23,7 +22,6 @@
               required
               type="password"
               placeholder="Password*"
-              
             >
             <!-- <div v-if="submitted && $v.user.password.$error" class="invalid-feedback pl-4">
               <span v-if="!$v.user.password.required">Password is required</span>
@@ -53,9 +51,7 @@
 </template>
 
 <script>
-export default {
-  
-}
+export default {};
 </script>
 
 <style scoped>
