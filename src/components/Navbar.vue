@@ -5,7 +5,13 @@
         <router-link class="navbar-brand" to="/">Home_Run</router-link>
       </div>
       <div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
@@ -13,32 +19,34 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto mr-auto">
       <li class="nav-item active">
-        <router-link 
-          class="nav-link un" 
+        <router-link
+          class="nav-link un"
           to="/about">About
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link 
-          class="nav-link un" 
+        <router-link
+          class="nav-link un"
           to="/contact">Contact</router-link>
       </li>
     </ul>
     <div class="form-inline my-2 my-lg-0">
-      <router-link class="btn btn-primary mr-sm-2 register-btn" to="/auth/register">Register</router-link>
+      <router-link
+        class="btn btn-primary mr-sm-2 register-btn"
+        to="/auth/register"
+      >Register
+      </router-link>
       <router-link class="btn my-2 my-sm-0 login-btn" to="/auth/login">Login</router-link>
     </div>
   </div>
 </nav>
   </main>
-  
 </template>
 
 <script>
 export default {
-  name: 'Navbar'
-  
-}
+  name: 'Navbar',
+};
 </script>
 
 <style scoped>

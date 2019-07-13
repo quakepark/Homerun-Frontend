@@ -18,8 +18,23 @@ export default {
       state.isFetching = true;
     },
     sestUccessfullMessage(state) {
-      state.successMessage = "";
-      
-    }
+      state.successMessage = '';
+    },
+  },
+
+  actions: {
+    async register({ commit }, user) {
+      const data = user;
+      commit('startAuthRequest');
+      try {
+        const response = await Vue.axios.post('/register/', data);
+        const responseMessage = response.data.message;
+        commit('setSuccessMessage', responseMessage);
+        commit('endAuthRequest');
+      } catch (error) {
+        commit('endAuthRequest');
+        throw new Error(error.response.data.error.message);
+      }
+    },
   },
 };

@@ -7,17 +7,16 @@
 </template>
 
 <script>
-import NavBar from '@/components/Navbar.vue'
-import Footer from '@/components/Footer.vue'
+import NavBar from '@/components/Navbar.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
   name: 'auth-layout',
   components: {
     NavBar,
-    Footer
-  }
-  
-}
+    Footer,
+  },
+};
 </script>
 
 <style scoped>

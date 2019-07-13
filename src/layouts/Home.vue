@@ -4,19 +4,30 @@
       <p>sjsds</p>
     <!-- <div class = "holder">
       <form @submit.prevent="addItem">
-      <input type= "text" placeholder="Enter The items/Products You want us to purchase" v-model="item" v-validate= "'required|min:3|max:30'" name = "item">
-      
-      <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+      <input
+        type= "text"
+        placeholder="Enter The items/Products You want us to purchase"
+        v-model="item"
+        v-validate= "'required|min:3|max:30'" name = "item">
+      <transition
+      name="alert-in"
+      enter-active-class="animated flipInX"
+      leave-active-class="animated flipOutX"
+      >
       <p class= "alert" v-if="errors.has('item')">{{ errors.first('item')}}</p>
       </transition>
       </form>
 
-      <ul> 
-        <div name="list" enter-active-class="animated bounceInUp" leave-active-class="animated bounceOutDown">
+      <ul>
+        <div
+          name="list"
+          enter-active-class="animated bounceInUp"
+          leave-active-class="animated bounceOutDown"
+          >
           <li v-for="(data, index) in items" :key='index'>
             {{data.item}}
             <i class="fa fa-minus-circle" v-on:click="remove(index)"></i>
-            </li> 
+            </li>
         </div>
       </ul>
       <p> These are items that you want us to purchase </p>
@@ -25,38 +36,37 @@
 </template>
 
 <script>
-import NavBar from '@/components/Navbar.vue'
+import NavBar from '@/components/Navbar.vue';
 
 export default {
   name: 'Home',
   components: {
-    NavBar
+    NavBar,
   },
   data() {
     return {
       item: '',
-      items: [
-        
-      ]
-    }
+      items: [],
+    };
   },
   methods: {
-    addItem(){
-      this.$validator.validateAll()
-        .then((err, result) =>{
-          if (result) {
-            this.items.push({item: this.item})
-            this.item = '';
-          } else {
-            return err
-          }
-        })
+    // addItem() {
+    //   this.$validator.validateAll()
+    //     .then((err, result) => {
+    //       /* eslint consistent-return: "error" */
+    //       if (result) {
+    //         this.items.push({ item: this.item });
+    //         this.item = '';
+    //       } else {
+    //         return err;
+    //       }
+    //     });
+    // },
+    remove(id) {
+      this.items.splice(id, 1);
     },
-    remove(id){
-      this.items.splice(id,1);
-    }
-  }
-}
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

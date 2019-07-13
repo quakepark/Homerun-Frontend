@@ -9,11 +9,12 @@
               required
               type="text"
               placeholder="First Name*"
+              v-model="user.First_Name"
             >
-            <!-- <div
-              v-if="submitted && !$v.user.firstName.required"
+            <div
+              v-if="submitted && !$v.user.First_Name.required"
               class="invalid-feedback pl-4"
-            >First Name is required</div> -->
+            >First Name is required</div>
           </div>
 
           <div class="form-group last-name">
@@ -22,29 +23,10 @@
               type="text"
               placeholder="Last Name*"
             >
-            <!-- <div
-              v-if="submitted  && !$v.user.lastName.required"
+            <div
+              v-if="submitted  && !$v.user.Last_Name.required"
               class="invalid-feedback pl-4"
-            >Last Name is required</div> -->
-          </div>
-
-          <div class="form-group username">
-            <input
-              required
-              type="text"
-              placeholder="Username*"
-            >
-            <!-- <div
-              v-if="submitted && !$v.user.username.required"
-              class="invalid-feedback pl-4"
-            >User Name is required</div> -->
-            <!-- <div
-              v-if="submitted && !$v.user.username.validateUserName"
-              class="invalid-feedback pl-4"
-            >
-              Username is invalid:
-              <br> A username should at least be 2 characters long
-            </div> -->
+            >Last Name is required</div>
           </div>
 
           <div class="form-group company">
@@ -53,9 +35,9 @@
               type="text"
               placeholder="Address*"
             >
-            <!-- <div v-if="submitted && $v.user.companyName.$error" class="invalid-feedback pl-4">
-              <span v-if="!$v.user.companyName.required">company Name is required</span>
-            </div> -->
+            <div v-if="submitted && $v.user.Address.$error" class="invalid-feedback pl-4">
+              <span v-if="!$v.user.Address.required">Address is required</span>
+            </div>
           </div>
 
           <div class="form-group email">
@@ -64,10 +46,10 @@
               type="email"
               placeholder="Email Address*"
             >
-            <!-- <div v-if="submitted && $v.user.email.$error" class="invalid-feedback pl-4">
+            <div v-if="submitted && $v.user.email.$error" class="invalid-feedback pl-4">
               <span v-if="!$v.user.email.required">Email is required</span>
               <span v-if="!$v.user.email.email">Email is invalid</span>
-            </div> -->
+            </div>
           </div>
 
           <div class="form-group password">
@@ -139,7 +121,39 @@
 </template>
 
 <script>
-export default {};
+import { mapState, mapActions } from 'vuex';
+import { required, email } from 'vuelidate/lib/validators';
+
+export default {
+  data() {
+    return {
+      user: {
+        First_Name: '',
+        Last_Name: '',
+        Address: '',
+        Email_Address: '',
+      },
+      submitted: false,
+    };
+  },
+  validations: {
+    user: {
+      First_Name: { required },
+      Last_Name: { required },
+      Address: { required },
+      Email_Address: { required, email },
+    },
+  },
+  methods: {
+    ...mapActions(['register']),
+  },
+  computed: {
+    ...mapState(['auth']),
+    email() {
+      return this.user.email;
+    },
+  },
+};
 </script>
 
 <style scoped>
